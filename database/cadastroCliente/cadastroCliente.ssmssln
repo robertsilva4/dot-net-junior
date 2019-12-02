@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "cadastroCliente", "cadastroCliente\cadastroCliente.ssmssqlproj", "{420E837B-FC2E-4127-97AD-6812F13A1FC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{420E837B-FC2E-4127-97AD-6812F13A1FC5}.Default|Default.ActiveCfg = Default
+		{34C2AF38-408B-45E0-8020-26017F456D54}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89AF3CCF-168A-47E1-BCB5-BED9D4C725D9}
+	EndGlobalSection
+EndGlobal
