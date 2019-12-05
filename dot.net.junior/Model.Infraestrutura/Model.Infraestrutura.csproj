@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,7 +46,9 @@
     <Compile Include="Acesso ao banco\acesso.cs" />
     <Compile Include="AcessoEntidades\BaseDao.cs" />
     <Compile Include="AcessoEntidades\ClienteAcess.cs" />
+    <Compile Include="AcessoEntidades\EnderecoAcess.cs" />
     <Compile Include="Cast\DataCast.cs" />
+    <Compile Include="Configurar\Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ namespace Model.Infraestrutura.AcessoEntidades
     public class ClienteAcess : BaseDao<Cliente>
     {
         public ClienteAcess() { }
-        public ClienteAcess(acesso connection) : base(connection) { }
+        public ClienteAcess(acesso acesso) : base(acesso) { }
 
         public override List<Cliente> CastToObject(SqlDataReader Reader)
         {

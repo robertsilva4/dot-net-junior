@@ -8,7 +8,7 @@ namespace Model.Entidades
 {
     public class Endereco
     {
-        public int idEnderco { get; set; }
+        public int idEndereco { get; set; }
         public string rua { get; set; }
         public int numero { get; set; }
         public string bairro { get; set; }

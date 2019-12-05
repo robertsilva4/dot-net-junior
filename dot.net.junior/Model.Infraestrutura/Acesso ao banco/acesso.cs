@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,13 +19,8 @@ namespace Model.Infraestrutura.Acesso_ao_banco
 
             public acesso()
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "ROBERT-PC";
-                builder.UserID = "RICHARD";
-                builder.Password = "123456";
-                builder.InitialCatalog = "CADASTRO";
 
-                this._sqlConnection = new SqlConnection(Configuration.Config.ConnectionString);
+            this._sqlConnection = new SqlConnection(Configurar.Config.ConnectionString) ;
                 this._sqlConnection.Open();
             }
 

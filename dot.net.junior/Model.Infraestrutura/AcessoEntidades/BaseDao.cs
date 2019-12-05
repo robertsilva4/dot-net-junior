@@ -21,7 +21,7 @@ namespace Model.Infraestrutura.AcessoEntidades
             this._sqlParameters = new List<SqlParameter>();
         }
 
-        public BaseDao(Acesso_ao_banco.acesso Connection)
+        public BaseDao(acesso Connection)
         {
             this._connectionSql = Connection;
             this.Sql = new StringBuilder();
