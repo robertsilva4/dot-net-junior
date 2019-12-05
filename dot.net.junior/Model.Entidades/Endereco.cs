@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model.Entidades
 {
-    class Endereco
+    public class Endereco
     {
+        public int idEnderco { get; set; }
+        public string rua { get; set; }
+        public string bairro { get; set; }
+        public string cidade { get; set; }
+        public int cep { get; set; } 
     }
 }
