@@ -8,52 +8,86 @@ using System.Data.SqlClient;
 
 namespace Model.Infraestrutura.Acesso_ao_banco
 {
-    namespace sqltest
-    {
-        class acesso
+
+                    
+
+        public class acesso : IDisposable
         {
-            static void Main(string[] args)
+            private readonly SqlConnection _sqlConnection;
+            private SqlTransaction _sqltransaction;
+
+            public acesso()
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "ROBERT-PC";
+                builder.UserID = "RICHARD";
+                builder.Password = "123456";
+                builder.InitialCatalog = "CADASTRO";
+
+                this._sqlConnection = new SqlConnection(Configuration.Config.ConnectionString);
+                this._sqlConnection.Open();
+            }
+
+            public object Command(StringBuilder Sql, List<SqlParameter> Parameters)
             {
                 try
                 {
-                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                    builder.DataSource = "ROBERT-PC";
-                    builder.UserID = "RICHARD";
-                    builder.Password = "123456";
-                    builder.InitialCatalog = "CADASTRO";
+                    SqlCommand command = new SqlCommand(Sql.ToString(), _sqlConnection);
+                    command.Parameters.AddRange(Parameters.ToArray());
+                    command.Transaction = this._sqltransaction;
+                    return command.ExecuteScalar();
 
-                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                    {
-                        //Console.WriteLine("\nQuery data example:");
-                        //Console.WriteLine("=========================================\n");
-
-                        connection.Open();
-                        StringBuilder sb = new StringBuilder();
-                        sb.Append("SELECT");
-                        sb.Append("SELEC");
-                        sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                        sb.Append("JOIN [SalesLT].[Product] p ");
-                        sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                        String sql = sb.ToString();
-
-                        using (SqlCommand command = new SqlCommand(sql, connection))
-                        {
-                            using (SqlDataReader reader = command.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
-                                }
-                            }
-                        }
-                    }
                 }
-                catch (SqlException e)
+                catch (Exception error)
                 {
-                    Console.WriteLine(e.ToString());
+                    throw error;
                 }
-                Console.ReadLine();
+                finally
+                {
+                    Sql.Clear();
+                    Parameters.Clear();
+                }
+            }
+
+            public SqlDataReader Reader(StringBuilder Sql, List<SqlParameter> Parameters)
+            {
+                try
+                {
+                    SqlCommand command = new SqlCommand(Sql.ToString(), _sqlConnection);
+                    command.Parameters.AddRange(Parameters.ToArray());
+                    return command.ExecuteReader();
+                }
+                catch (Exception error)
+                {
+                    throw error;
+                }
+                finally
+                {
+                    Sql.Clear();
+                    Parameters.Clear();
+                }
+            }
+
+            public void BeginTransaction()
+            {
+                _sqltransaction = _sqlConnection.BeginTransaction();
+            }
+
+            public void Commit()
+            {
+                _sqltransaction?.Commit();
+            }
+
+            public void RollBack()
+            {
+                _sqltransaction?.Rollback();
+            }
+
+            public void Dispose()
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                    _sqlConnection.Close();
+                _sqlConnection.Dispose();
             }
         }
     }
-}

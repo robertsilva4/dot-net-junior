@@ -10,8 +10,10 @@ namespace Model.Entidades
     {
         public int idEnderco { get; set; }
         public string rua { get; set; }
+        public int numero { get; set; }
         public string bairro { get; set; }
         public string cidade { get; set; }
-        public int cep { get; set; } 
+        public int cep { get; set; }
+        public string tipo { get; set; }
     }
 }

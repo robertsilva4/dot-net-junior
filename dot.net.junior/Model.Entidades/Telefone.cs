@@ -8,7 +8,7 @@ namespace Model.Entidades
 {
     public class Telefone
     {
-        public int ddd { get; set }
+        public int ddd { get; set ; }
         public int telefone { get; set; }
         public string tipo { get; set; }
     }

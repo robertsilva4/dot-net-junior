@@ -8,7 +8,7 @@ namespace Model.Entidades
 {
     public class Cliente
     {
-        public int idClliente { get; set;}
+        public int id { get; set;}
         public string nome { get; set; }
         public int cpf { get; set; }
         public int cnpj { get; set; }

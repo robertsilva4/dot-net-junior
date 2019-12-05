@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acesso ao banco\acesso.cs" />
+    <Compile Include="AcessoEntidades\BaseDao.cs" />
+    <Compile Include="AcessoEntidades\ClienteAcess.cs" />
+    <Compile Include="Cast\DataCast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
