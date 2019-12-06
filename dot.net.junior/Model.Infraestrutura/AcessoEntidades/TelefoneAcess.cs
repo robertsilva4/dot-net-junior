@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Model.Entidades;
-using System.Data.SqlClient;
+﻿using Model.Entidades;
 using Model.Infraestrutura.Acesso_ao_banco;
 using Model.Infraestrutura.Cast;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace Model.Infraestrutura.AcessoEntidades
 {
@@ -41,7 +37,7 @@ namespace Model.Infraestrutura.AcessoEntidades
         {
             base.Sql.Append(" UPDATE TB_TELEFONE SET ");
             base.Sql.Append(" ddd = @DDD,numero = @NUMERO,tipo = @TIPO) ");
-            base.Sql.Append(" WHERE ID = @ID_TELEFONE ");
+            base.Sql.Append(" WHERE numero = @NUMERO ");
 
             base.AddParameter("@DDD", telefone.ddd);
             base.AddParameter("@NUMERO", telefone.telefone);

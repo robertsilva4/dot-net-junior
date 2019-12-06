@@ -27,10 +27,10 @@ namespace Model.Infraestrutura.AcessoEntidades
 
         public Endereco Insert(Endereco endereco)
         {
-            base.Sql.Append(" INSERT INTO TB_ENDERECO(idEndereco, rua, numero, bairro,cidade,cep, tipo) ");
-            base.Sql.Append(" VALUES ('@ID_ENDERECO', '@RUA', '@NUMERO','@BAIRRO','@CIDADE','@CEP','@TIPO') ");
+            base.Sql.Append(" INSERT INTO TB_ENDERECO(rua, numero, bairro,cidade,cep, tipo) ");
+            base.Sql.Append(" OUTPUT inserted.idEndereco ");
+            base.Sql.Append(" VALUES ('@RUA', '@NUMERO','@BAIRRO','@CIDADE','@CEP','@TIPO') ");
 
-            base.AddParameter("@ID_ENDERECO", endereco.idEndereco);
             base.AddParameter("@RUA", endereco.rua);
             base.AddParameter("@NUMERO", endereco.numero);
             base.AddParameter("@BAIRRO", endereco.bairro);
@@ -46,9 +46,8 @@ namespace Model.Infraestrutura.AcessoEntidades
         {
             base.Sql.Append(" UPDATE TB_ENDERECO SET ");
             base.Sql.Append(" idEndereco = @ID_ENDERECO,rua = @RUA,numero = @NUMERO,bairro = @BAIRRO, cidade = @CIDADE,cep = @CEP,tipo = @TIPO) ");
-            base.Sql.Append(" WHERE ID = @ID_ENDERECO ");
+            base.Sql.Append(" WHERE idEndereco = @ID_ENDERECO ");
 
-            base.AddParameter("@ID_ENDERECO", endereco.idEndereco);
             base.AddParameter("@RUA", endereco.rua);
             base.AddParameter("@NUMERO", endereco.numero);
             base.AddParameter("@BAIRRO", endereco.bairro);

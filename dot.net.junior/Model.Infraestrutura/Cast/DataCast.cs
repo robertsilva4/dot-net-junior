@@ -16,8 +16,7 @@ namespace Model.Infraestrutura.Cast
             {
                 id = Convert.ToInt32(Reader["idcliente"]),
                 nome = Convert.ToString(Reader["nome"]),
-                cpf = Convert.ToInt32(Reader["cpf"]),
-                cnpj = Convert.ToInt32(Reader["cnpj"]),
+                cpfCnpj = Convert.ToInt32(Reader["cpf_cnpj"]),
                 endereco = Convert.ToInt32(Reader["endereco"]),
                 telefone = Convert.ToInt32(Reader["telefone"])
 
@@ -28,7 +27,7 @@ namespace Model.Infraestrutura.Cast
         {
             return new Endereco()
             {
-                idEnderco = Convert.ToInt32(Reader["idEndereco"]),
+                idEndereco = Convert.ToInt32(Reader["idEndereco"]),
                 rua = Convert.ToString(Reader["rua"]),
                 numero = Convert.ToInt32(Reader["numero"]),
                 bairro = Convert.ToString(Reader["bairro"]),
