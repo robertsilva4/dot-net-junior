@@ -47,6 +47,7 @@
     <Compile Include="AcessoEntidades\BaseDao.cs" />
     <Compile Include="AcessoEntidades\ClienteAcess.cs" />
     <Compile Include="AcessoEntidades\EnderecoAcess.cs" />
+    <Compile Include="AcessoEntidades\TelefoneAcess.cs" />
     <Compile Include="Cast\DataCast.cs" />
     <Compile Include="Configurar\Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
