@@ -7,7 +7,7 @@ CREATE DATABASE CADASTRO
 		constraint PK_Telefone primary key(numero)
 	)
 	CREATE TABLE TB_ENDERECO(
-		idEndereco int not null,
+		idEndereco int not null identity(1,1),
 		rua varchar(120) not null,
 		numero int not null,
 		bairro varchar(120) not null,
@@ -18,13 +18,17 @@ CREATE DATABASE CADASTRO
 	)
 	
 	CREATE TABLE TB_CLIENTE(
-		idCliente int not null,
+		idCliente int not null identity(1,1),
 		nome varchar(120) not null,
-		cpf varchar(13) not null,
-		cnpj varchar(18) not null,
+		cpf_cnpj varchar(18) not null,
 		endereco int not null,
 		telefone char(9) not null,
 		constraint PK_Cliente primary key(idCliente),
 		constraint FK_Endereco foreign key(endereco) references TB_ENDERECO,
 		constraint FK_Numero foreign key(telefone) references TB_TELEFONE
 	)
+
+
+UPDATE TB_CLIENTE SET
+	  nome = 'seila', cpf_cnpj = '1234',endereco ='1',telefone = '12' 
+      WHERE idCliente = '1' 

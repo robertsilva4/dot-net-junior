@@ -25,6 +25,11 @@ namespace Model.Infraestrutura.AcessoEntidades
             return Clientes;
         }
 
+        public Cliente Select(int idCliente)
+        {
+            throw new NotImplementedException();
+        }
+
         public Cliente Insert(Cliente cliente)
         {
             base.Sql.Append(" INSERT INTO TB_CLIENTE(nome, cpf, cnpj,endereco,telefone) ");
