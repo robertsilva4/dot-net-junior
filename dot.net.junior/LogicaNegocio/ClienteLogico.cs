@@ -39,5 +39,10 @@ namespace LogicaNegocio
         {
             this._clienteAcess.Dispose();
         }
+
+        public object Consultar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

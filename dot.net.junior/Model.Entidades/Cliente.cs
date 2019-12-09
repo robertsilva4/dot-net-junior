@@ -10,8 +10,8 @@ namespace Model.Entidades
     {
         public int id { get; set;}
         public string nome { get; set; }
-        public int cpfCnpj { get; set; }
-        public int endereco { get; set; }
-        public int telefone { get; set; }
+        public Int32 cpfCnpj { get; set; }
+        public Int32 endereco { get; set; }
+        public Int32 telefone { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Model.Infraestrutura.Cast
         {
             return new Cliente()
             {
-                id = Convert.ToInt32(Reader["idcliente"]),
+                id = Convert.Toint(Reader["idcliente"]),
                 nome = Convert.ToString(Reader["nome"]),
                 cpfCnpj = Convert.ToInt32(Reader["cpf_cnpj"]),
                 endereco = Convert.ToInt32(Reader["endereco"]),

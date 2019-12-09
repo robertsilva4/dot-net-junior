@@ -32,15 +32,16 @@ namespace Model.Infraestrutura.AcessoEntidades
 
         public Cliente Insert(Cliente cliente)
         {
-            base.Sql.Append(" INSERT INTO TB_CLIENTE(nome, cpf, cnpj,endereco,telefone) ");
+            base.Sql.Append(" INSERT INTO TB_CLIENTE(nome, cpf_cnpj,endereco,telefone) ");
             base.Sql.Append(" OUTPUT inserted.idCliente ");
-            base.Sql.Append(" VALUES ('@NOME', '@CPF','@CNPJ','@ENDERECO','@TELEFONE') ");
+            base.Sql.Append(" VALUES ('@NOME', '@CPFCNPJ','@ENDERECO','@TELEFONE') ");
 
             base.AddParameter("@NOME", cliente.nome);
             base.AddParameter("@CPFCNPJ", cliente.cpfCnpj);
             base.AddParameter("@ENDERECO", cliente.endereco);
             base.AddParameter("@TELEFONE", cliente.telefone);
 
+            cliente.id = (int)base.ExecuteComand();
 
             return cliente;
         }
@@ -49,14 +50,14 @@ namespace Model.Infraestrutura.AcessoEntidades
         {
             base.Sql.Append(" UPDATE TB_CLIENTE SET ");
             base.Sql.Append("  nome = '@NOME', cpf_cnpj = '@CPFCNPJ',endereco ='@ENDERECO',telefone = '@TELEFONE' ");
-            base.Sql.Append(" WHERE ID = @ID ");
+            base.Sql.Append(" WHERE idCliente = @ID ");
 
             base.AddParameter("@NOME", cliente.nome);
             base.AddParameter("@CPFCNPJ", cliente.cpfCnpj);
             base.AddParameter("@ENDERECO", cliente.endereco);
             base.AddParameter("@TELEFONE", cliente.telefone);
 
-            base.ExecuteComand();
+            cliente.id = (int)base.ExecuteComand();
 
             return cliente;
         }
@@ -67,7 +68,6 @@ namespace Model.Infraestrutura.AcessoEntidades
             base.Sql.Append("   idCliente AS CLIENTE_ID, ");
             base.Sql.Append("   nome AS CLIENTE_NOME, ");
             base.Sql.Append("   cpf_cnpj AS CLIENTE_CPF_CNPJ,  ");
-            base.Sql.Append("   cnpj AS CLIENTE_CNPJ, ");
             base.Sql.Append("   endereco AS  CLIENTE_ENDERECO, ");
             base.Sql.Append("   telefone AS CLIENTE_TELEFONE ");
             base.Sql.Append(" FROM TB_CLIENTE ");
