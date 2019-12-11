@@ -11,7 +11,7 @@ namespace LogicaNegocio
     {
         Telefone Inserir(Telefone telefone);
         Telefone Atualizar(Telefone telefone);
-        List<Telefone> listar();
+        List<Telefone> Listar();
         Telefone consultar(Telefone idTelefone);
     }
 }

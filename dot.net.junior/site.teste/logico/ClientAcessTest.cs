@@ -17,7 +17,7 @@ namespace site.teste.logico
         {
             using (var dao = new ClienteAcess())
             {
-                var cliente = dao.Select();
+                var clientes = dao.Select();
             }
         }
 
@@ -26,14 +26,14 @@ namespace site.teste.logico
         {
             using (var dao = new ClienteAcess())
             {
-                var clientes = dao.Select();
+                var Cliente = dao.Select();
             }
         }
 
         [TestMethod]
         public void SelectByCliente()
         {
-            using (var dao = new TelefoneAcess())
+            using (var dao = new ClienteAcess())
             {
                 //var produtos = dao.SelectByCategoria(1);
             }

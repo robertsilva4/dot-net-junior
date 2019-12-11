@@ -23,12 +23,19 @@ namespace LogicaNegocio
 
         public Cliente Consultar(int idCliente)
         {
+            
             return this._clienteAcess.Select(idCliente);
         }
 
+        public static bool IsValid(string cpfCnpj)
+        {
+            return IsValid(cpfCnpj);
+        }
+        
+
         public Cliente Inserir(Cliente cliente)
         {
-            return this._clienteAcess.Insert(cliente);
+            return this._clienteAcess.Insert(cliente);   
         }
 
         public List<Cliente> Listar()

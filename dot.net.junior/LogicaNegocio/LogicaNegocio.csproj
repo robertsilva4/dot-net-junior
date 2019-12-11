@@ -43,12 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteLogico.cs" />
-    <Compile Include="EnderecoLogico.cs" />
     <Compile Include="interface\Cliente.cs" />
     <Compile Include="interface\Endereco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="interface\Telefone.cs" />
-    <Compile Include="TelefoneLogico.cs" />
+    <Compile Include="ValidaCpfCnpj.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model.Entidades\Model.Entidades.csproj">

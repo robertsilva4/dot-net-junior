@@ -10,18 +10,22 @@ namespace Model.Infraestrutura.Cast
 {
     public static class DataCast
     {
-        public static Cliente CastCliente(SqlDataReader Reader)
+        public static Cliente CastCliente(SqlDataReader Reader) => new Cliente()
         {
-            return new Cliente()
-            {
-                id = Convert.Toint(Reader["idcliente"]),
-                nome = Convert.ToString(Reader["nome"]),
-                cpfCnpj = Convert.ToInt32(Reader["cpf_cnpj"]),
-                endereco = Convert.ToInt32(Reader["endereco"]),
-                telefone = Convert.ToInt32(Reader["telefone"])
+            id = Convert.ToInt32(Reader["CLIENTE_ID"]),
+            nome = Convert.ToString(Reader["CLIENTE_NOME"]),
+            cpfCnpj = Convert.ToString(Reader["CLIENTE_CPFCNPJ"]),
+            rua = Convert.ToString(Reader["CLIENTE_RUA"]),
+            numero = Convert.ToString(Reader["CLIENTE_NUMERO"]),
+            bairro = Convert.ToString(Reader["CLIENTE_BAIRRO"]),
+            cidade = Convert.ToString(Reader["CLIENTE_CIDADE"]),
+            cep = Convert.ToString(Reader["CLIENTE_CEP"]),
+            tipocasa = Convert.ToString(Reader["CLIENTE_TIPO_CASA"]),
+            ddd = Convert.ToString(Reader["CLIENTE_DDD"]),
+            telefone = Convert.ToString(Reader["CLIENTE_NUM_TELEFONE"]),
+            tipotelefone = Convert.ToString(Reader["CLIENTE_TIPO_TELEFONE"]),
 
-            };
-        }
+        };
 
         public static Endereco CastEndereco(SqlDataReader Reader)
         {
@@ -37,7 +41,7 @@ namespace Model.Infraestrutura.Cast
             };
         }
 
-        public static Telefone CastTelefone(SqlDataReader Reader)
+        public static Telefone CastTelefone(SqlDataReader Reader) 
         {
             return new Telefone()
             {

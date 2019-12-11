@@ -10,12 +10,14 @@ namespace Site.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Title = "Home Page";
+
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "pagina de cadastro cliente.";
 
             return View();
         }

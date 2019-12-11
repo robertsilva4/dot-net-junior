@@ -21,10 +21,18 @@ namespace site.teste.acesso
                 {
                     var cliente = new Cliente()
                     {
-                        nome = "robert richard",
-                        cpfCnpj = 12345,
-                        endereco = 1,
-                        telefone = 112345
+                        id = '1',
+                        nome = "ro",
+                        cpfCnpj = "1",
+                        rua = "r",
+                        numero = "1",
+                        bairro = "s",
+                        cidade = "s",
+                        cep = "1",
+                        tipocasa = "r",
+                        ddd = "1",
+                        telefone = "13",
+                        tipotelefone = "r"
 
                     };
 
@@ -32,42 +40,5 @@ namespace site.teste.acesso
                 }
             }
 
-            [TestMethod]
-            public void Atualizar()
-            {
-                using (var bl = new ClienteLogico())
-                {
-                    var cliente = bl.Consultar(1);
-                    cliente.nome = "robert richard";
-                    bl.Atualizar(cliente);
-                }
-            }
-
-            [TestMethod]
-            public void Consultar()
-            {
-                using (var bl = new ClienteLogico())
-                {
-                    var cliente = bl.Consultar();
-                }
-            }
-
-            [TestMethod]
-            public void Listar()
-            {
-                using (var bl = new ClienteLogico())
-                {
-                    var clientes = bl.Listar();
-                }
-            }
-
-            [TestMethod]
-            public void Logar()
-            {
-                using (var bl = new ClienteLogico())
-                {
-                    throw new NotImplementedException();
-                }
-            }
         }
 }
